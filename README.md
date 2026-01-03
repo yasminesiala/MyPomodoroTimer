@@ -1,6 +1,19 @@
 # Pomodoro Timer
 
-A 50/10 Miffy-themed Pomodoro widget with a 50/10 split and detailed subject tracking.
+<p align="center">
+  <img src="https://github.com/user-attachments/assets/99d2e8fc-49ff-44f3-af78-844737234da5"
+       alt="Timer screen"
+       height="420" />
+  &nbsp;&nbsp;&nbsp;
+  <img src="https://github.com/user-attachments/assets/73743a80-f7ac-440e-b4da-bef84c3c4058"
+       alt="Subject tracking screen"
+       height="420" />
+</p>
+
+<p align="center">
+A 50/10 Miffy-themed Pomodoro timer with subject tracking.<br />
+Threw this together quickly, still a work in progress.
+</p>
 
 ## Built With
 - **React 19**: Frontend framework
@@ -9,7 +22,7 @@ A 50/10 Miffy-themed Pomodoro widget with a 50/10 split and detailed subject tra
 - **Recharts**: Weekly progress visualization
 - **Lucide/FontAwesome**: UI iconography
 
-## ow to Run (Local Development)
+## How to Run (Local Development)
 
 ### 1. Requirements
 You don't need a heavy setup! Just a simple web server.
@@ -23,7 +36,7 @@ You don't need a heavy setup! Just a simple web server.
 
 ---
 
-## How to add as a Mac App 
+## How to add as an Application
 
 To make this feel like a real desktop app:
 1. Open **Safari** and go to the address where your app is running (e.g., `http://127.0.0.1:5500`).
