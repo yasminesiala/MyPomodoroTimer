@@ -13,6 +13,7 @@
 <p align="center">
 A 50/10 Miffy-themed Pomodoro timer with subject tracking.<br />
 Threw this together quickly, still a work in progress.
+It stores the study stats now & there's a weekly/monthly view. 
 </p>
 
 ## Built With
