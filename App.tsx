@@ -13,6 +13,8 @@ interface Entry {
 }
 
 export default function App() {
+  const [statsRange, setStatsRange] = useState<'week' | 'month'>('week');
+  const [statsOffset, setStatsOffset] = useState(0); // 0=current, 1=previous, etc.
   const [timeLeft, setTimeLeft] = useState(WORK_TIME);
   const [isActive, setIsActive] = useState(false);
   const [mode, setMode] = useState<TimerMode>(TimerMode.WORK);
@@ -186,9 +188,58 @@ export default function App() {
             </button>
           </div>
 
-          <div className="w-full pt-4 border-t-4 border-black/10">
-            <StatsBoard sessions={sessions} />
-          </div>
+<div className="w-full pt-4 border-t-4 border-black/10 space-y-2">
+  {/* Stats Controls */}
+  <div className="flex items-center justify-between gap-2">
+    {/* Prev */}
+    <button
+      onClick={() => setStatsOffset(o => o + 1)}
+      className="px-3 py-2 bg-white border-2 border-black rounded-xl font-black text-xs shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] active:translate-y-0.5 active:shadow-none"
+      type="button"
+    >
+      ◀ Prev
+    </button>
+
+    {/* Range toggle */}
+    <div className="flex gap-2">
+      <button
+        onClick={() => setStatsRange('week')}
+        className={`px-3 py-2 border-2 border-black rounded-xl font-black text-xs shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] active:translate-y-0.5 active:shadow-none ${
+          statsRange === 'week' ? 'bg-miffy-yellow' : 'bg-white'
+        }`}
+        type="button"
+      >
+        Week
+      </button>
+
+      <button
+        onClick={() => setStatsRange('month')}
+        className={`px-3 py-2 border-2 border-black rounded-xl font-black text-xs shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] active:translate-y-0.5 active:shadow-none ${
+          statsRange === 'month' ? 'bg-miffy-yellow' : 'bg-white'
+        }`}
+        type="button"
+      >
+        Month
+      </button>
+    </div>
+
+    {/* Next */}
+    <button
+      onClick={() => setStatsOffset(o => Math.max(0, o - 1))}
+      disabled={statsOffset === 0}
+      className={`px-3 py-2 border-2 border-black rounded-xl font-black text-xs shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] active:translate-y-0.5 active:shadow-none ${
+        statsOffset === 0 ? 'bg-gray-200 opacity-50 cursor-not-allowed shadow-none' : 'bg-white'
+      }`}
+      type="button"
+    >
+      Next ▶
+    </button>
+  </div>
+
+  {/* Chart */}
+  <StatsBoard sessions={sessions} range={statsRange} offset={statsOffset} />
+</div>
+
         </div>
       </div>
 
